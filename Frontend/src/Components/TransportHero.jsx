@@ -12,23 +12,27 @@ const TransportHero = ({ onSearch }) => {
     const [passengers, setPassengers] = useState('');
     const [isVisible, setIsVisible] = useState(false);
     const [errors, setErrors] = useState({});
-    const [currentMonth, setCurrentMonth] = useState(new Date());
 
     React.useEffect(() => {
         setIsVisible(true);
     }, []);
 
-    const locations = [
-        'Islamabad Airport',
-        'Karachi Airport',
-        'Lahore Airport',
-        'Murree',
+    const pickupLocations = [
+        'Lahore',
+        'Islamabad',
+        'Karachi',
+        'Peshawar',
+        'Faisalabad'
+    ];
+
+    const dropoffLocations = [
         'Hunza Valley',
         'Skardu',
         'Naran Kaghan',
         'Swat Valley',
-        'Rawalpindi',
-        'Faisalabad'
+        'Fairy Meadows',
+        'Murree Hills',
+        'Chitral Valley'
     ];
 
     const passengersOptions = [
@@ -36,8 +40,7 @@ const TransportHero = ({ onSearch }) => {
         { value: 2, label: '2 Passengers' },
         { value: 3, label: '3 Passengers' },
         { value: 4, label: '4 Passengers' },
-        { value: 5, label: '5 Passengers' },
-        { value: 6, label: '6+ Passengers' }
+        { value: 5, label: '5 Passengers' }
     ];
 
     const handlePickupSelect = (location) => {
@@ -72,57 +75,14 @@ const TransportHero = ({ onSearch }) => {
         }
     };
 
-    const handleClearDate = () => {
-        setPickupDate('');
-        if (errors.pickupDate) {
-            setErrors(prev => ({ ...prev, pickupDate: false }));
-        }
-    };
-
-    const handleTodayDate = () => {
-        const today = new Date().toISOString().split('T')[0];
-        setPickupDate(today);
-        setIsCalendarOpen(false);
-        if (errors.pickupDate) {
-            setErrors(prev => ({ ...prev, pickupDate: false }));
-        }
-    };
-
-    const goToPreviousMonth = () => {
-        setCurrentMonth(prev => {
-            const newDate = new Date(prev);
-            newDate.setMonth(prev.getMonth() - 1);
-            return newDate;
-        });
-    };
-
-    const goToNextMonth = () => {
-        setCurrentMonth(prev => {
-            const newDate = new Date(prev);
-            newDate.setMonth(prev.getMonth() + 1);
-            return newDate;
-        });
-    };
-
     const generateCalendarDates = () => {
-        const year = currentMonth.getFullYear();
-        const month = currentMonth.getMonth();
-        
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const startingDayOfWeek = firstDay.getDay();
-        const daysInMonth = lastDay.getDate();
-        
         const dates = [];
-        
-        for (let i = 0; i < startingDayOfWeek; i++) {
-            dates.push(null);
+        const today = new Date();
+        for (let i = 0; i < 35; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() + i);
+            dates.push(date);
         }
-        
-        for (let day = 1; day <= daysInMonth; day++) {
-            dates.push(new Date(year, month, day));
-        }
-        
         return dates;
     };
 
@@ -156,11 +116,8 @@ const TransportHero = ({ onSearch }) => {
         }
 
         setTimeout(() => {
-            window.scrollTo({
-                top: 700,
-                behavior: 'smooth'
-            });
-        }, 300);
+            document.getElementById('cars-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     };
 
     return (
@@ -168,7 +125,7 @@ const TransportHero = ({ onSearch }) => {
             <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')`,
+                    backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')",
                 }}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-emerald-900/50 to-teal-900/60"></div>
@@ -228,19 +185,21 @@ const TransportHero = ({ onSearch }) => {
                                 </button>
 
                                 {isPickupOpen && (
-                                    <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 overflow-hidden z-50 max-h-56 overflow-y-auto">
-                                        {locations.map((location, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => handlePickupSelect(location)}
-                                                className="w-full px-3 py-2 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 text-sm font-medium"
-                                            >
-                                                <div className="flex items-center space-x-2">
-                                                    <MapPin className="w-3.5 h-3.5 text-emerald-600" />
-                                                    <span>{location}</span>
-                                                </div>
-                                            </button>
-                                        ))}
+                                    <div className="absolute top-full mt-1 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 z-50 max-h-44 overflow-hidden">
+                                        <div className="overflow-y-auto max-h-44">
+                                            {pickupLocations.map((location, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => handlePickupSelect(location)}
+                                                    className="w-full px-4 py-2.5 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
+                                                >
+                                                    <div className="flex items-center space-x-2">
+                                                        <MapPin className="w-4 h-4 text-emerald-600" />
+                                                        <span>{location}</span>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -250,7 +209,7 @@ const TransportHero = ({ onSearch }) => {
                         <div className="relative">
                             <label className="block text-white text-sm font-medium mb-2 flex items-center space-x-2">
                                 <MapPin className="w-4 h-4 text-emerald-400" />
-                                <span>Dropoff Location</span>
+                                <span>Drop-off Location</span>
                             </label>
                             <div className="relative">
                                 <button
@@ -267,31 +226,33 @@ const TransportHero = ({ onSearch }) => {
                                     }`}
                                 >
                                     <span className={selectedDropoff ? 'text-white' : 'text-gray-300'}>
-                                        {selectedDropoff || 'Select dropoff'}
+                                        {selectedDropoff || 'Select drop-off'}
                                     </span>
                                     <ChevronDown className={`w-5 h-5 text-emerald-400 transition-transform duration-200 ${isDropoffOpen ? 'rotate-180' : ''}`} />
                                 </button>
 
                                 {isDropoffOpen && (
-                                    <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 overflow-hidden z-50 max-h-56 overflow-y-auto">
-                                        {locations.map((location, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => handleDropoffSelect(location)}
-                                                className="w-full px-3 py-2 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 text-sm font-medium"
-                                            >
-                                                <div className="flex items-center space-x-2">
-                                                    <MapPin className="w-3.5 h-3.5 text-emerald-600" />
-                                                    <span>{location}</span>
-                                                </div>
-                                            </button>
-                                        ))}
+                                    <div className="absolute top-full mt-1 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 z-50 max-h-44 overflow-hidden">
+                                        <div className="overflow-y-auto max-h-44">
+                                            {dropoffLocations.map((location, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => handleDropoffSelect(location)}
+                                                    className="w-full px-4 py-2.5 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
+                                                >
+                                                    <div className="flex items-center space-x-2">
+                                                        <MapPin className="w-4 h-4 text-emerald-600" />
+                                                        <span>{location}</span>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>
                         </div>
 
-                        {/* Pickup Date with Calendar */}
+                        {/* Pickup Date */}
                         <div className="relative">
                             <label className="block text-white text-sm font-medium mb-2 flex items-center space-x-2">
                                 <Calendar className="w-4 h-4 text-emerald-400" />
@@ -311,63 +272,33 @@ const TransportHero = ({ onSearch }) => {
                                             : 'bg-white/20 border-white/30 text-white hover:bg-white/30'
                                     }`}
                                 >
-                                    <span className={pickupDate ? 'text-white' : 'text-gray-300'}>
+                                    <span className={pickupDate ? 'text-white text-sm' : 'text-gray-300 text-sm'}>
                                         {pickupDate ? formatDate(new Date(pickupDate)) : 'Select date'}
                                     </span>
-                                    <Calendar className="w-5 h-5 text-emerald-400" />
+                                    <Calendar className="w-4 h-4 text-emerald-400" />
                                 </button>
 
                                 {isCalendarOpen && (
-                                    <div className="absolute top-full mt-2 w-72 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 p-3 z-50">
-                                        <div className="flex items-center justify-between mb-3 pb-2 border-b border-emerald-100">
-                                            <button
-                                                onClick={goToPreviousMonth}
-                                                className="p-1 hover:bg-emerald-50 rounded-lg transition-colors"
-                                            >
-                                                <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                                </svg>
-                                            </button>
-                                            <div className="text-sm font-bold text-emerald-700">
-                                                {currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-                                            </div>
-                                            <button
-                                                onClick={goToNextMonth}
-                                                className="p-1 hover:bg-emerald-50 rounded-lg transition-colors"
-                                            >
-                                                <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div className="grid grid-cols-7 gap-1 mb-3">
+                                    <div className="absolute top-full mt-1 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 p-2 z-50 overflow-hidden">
+                                        <div className="grid grid-cols-7 gap-0.5">
                                             {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, idx) => (
-                                                <div key={idx} className="text-center text-xs font-semibold text-emerald-700 py-1">
+                                                <div key={idx} className="text-center text-[10px] font-semibold text-emerald-700 py-0.5">
                                                     {day}
                                                 </div>
                                             ))}
                                             
                                             {calendarDates.map((date, index) => {
-                                                if (!date) {
-                                                    return <div key={index} className="p-1.5"></div>;
-                                                }
-                                                
                                                 const dateStr = date.toISOString().split('T')[0];
                                                 const isSelected = pickupDate === dateStr;
                                                 const isToday = new Date().toDateString() === date.toDateString();
-                                                const isPast = date < new Date(new Date().setHours(0, 0, 0, 0));
                                                 
                                                 return (
                                                     <button
                                                         key={index}
-                                                        onClick={() => !isPast && handleDateSelect(dateStr)}
-                                                        disabled={isPast}
-                                                        className={`p-1.5 text-xs rounded-lg transition-all duration-200 ${
-                                                            isPast
-                                                                ? 'text-gray-300 cursor-not-allowed'
-                                                                : isSelected
-                                                                ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold shadow-md'
+                                                        onClick={() => handleDateSelect(dateStr)}
+                                                        className={`p-1 text-[10px] rounded transition-all duration-200 ${
+                                                            isSelected
+                                                                ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold'
                                                                 : isToday
                                                                 ? 'bg-emerald-100 text-emerald-700 font-semibold'
                                                                 : 'hover:bg-emerald-50 text-gray-700'
@@ -377,21 +308,6 @@ const TransportHero = ({ onSearch }) => {
                                                     </button>
                                                 );
                                             })}
-                                        </div>
-
-                                        <div className="flex items-center justify-between gap-2 pt-2 border-t border-emerald-100">
-                                            <button
-                                                onClick={handleClearDate}
-                                                className="flex-1 px-3 py-1.5 text-xs font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-                                            >
-                                                Clear
-                                            </button>
-                                            <button
-                                                onClick={handleTodayDate}
-                                                className="flex-1 px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:shadow-md rounded-lg transition-all"
-                                            >
-                                                Today
-                                            </button>
                                         </div>
                                     </div>
                                 )}
@@ -425,19 +341,21 @@ const TransportHero = ({ onSearch }) => {
                                 </button>
 
                                 {isPassengersOpen && (
-                                    <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 overflow-hidden z-50 max-h-56 overflow-y-auto">
-                                        {passengersOptions.map((option, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => handlePassengersSelect(option.value)}
-                                                className="w-full px-3 py-2 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 text-sm font-medium"
-                                            >
-                                                <div className="flex items-center space-x-2">
-                                                    <Users className="w-3.5 h-3.5 text-emerald-600" />
-                                                    <span>{option.label}</span>
-                                                </div>
-                                            </button>
-                                        ))}
+                                    <div className="absolute top-full mt-1 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 z-50 max-h-44 overflow-hidden">
+                                        <div className="overflow-y-auto max-h-44">
+                                            {passengersOptions.map((option, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => handlePassengersSelect(option.value)}
+                                                    className="w-full px-4 py-2.5 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
+                                                >
+                                                    <div className="flex items-center space-x-2">
+                                                        <Users className="w-4 h-4 text-emerald-600" />
+                                                        <span>{option.label}</span>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>

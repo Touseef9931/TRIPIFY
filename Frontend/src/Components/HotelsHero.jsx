@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Calendar, Users, Search, ChevronDown } from 'lucide-react';
 
-const HotelsHero = ({ onSearch }) => {
+const HotelsHero = ({ onSearch, hotelsResultsRef }) => {
     const [isDestinationOpen, setIsDestinationOpen] = useState(false);
     const [isTravelersOpen, setIsTravelersOpen] = useState(false);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -30,8 +30,7 @@ const HotelsHero = ({ onSearch }) => {
         { value: 2, label: '2 Persons' },
         { value: 3, label: '3 Persons' },
         { value: 4, label: '4 Persons' },
-        { value: 5, label: '5 Persons' },
-        { value: 6, label: '6+ Persons' }
+        { value: 5, label: '5 Persons' }
     ];
 
     const handleDestinationSelect = (destination) => {
@@ -79,13 +78,15 @@ const HotelsHero = ({ onSearch }) => {
             });
         }
 
-        // Scroll to results section
+        // Scroll to hotels results section
         setTimeout(() => {
-            window.scrollTo({
-                top: 700,
-                behavior: 'smooth'
-            });
-        }, 300);
+            if (hotelsResultsRef && hotelsResultsRef.current) {
+                hotelsResultsRef.current.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        }, 100);
     };
 
     const generateCalendarDates = () => {
@@ -169,19 +170,21 @@ const HotelsHero = ({ onSearch }) => {
                                 </button>
 
                                 {isDestinationOpen && (
-                                    <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 overflow-hidden z-50 max-h-64 overflow-y-auto">
-                                        {destinations.map((destination, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => handleDestinationSelect(destination)}
-                                                className="w-full px-4 py-3 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
-                                            >
-                                                <div className="flex items-center space-x-2">
-                                                    <MapPin className="w-4 h-4 text-emerald-600" />
-                                                    <span>{destination}</span>
-                                                </div>
-                                            </button>
-                                        ))}
+                                    <div className="absolute top-full mt-1 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 z-50 max-h-44 overflow-hidden">
+                                        <div className="overflow-y-auto max-h-44">
+                                            {destinations.map((destination, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => handleDestinationSelect(destination)}
+                                                    className="w-full px-4 py-2.5 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
+                                                >
+                                                    <div className="flex items-center space-x-2">
+                                                        <MapPin className="w-4 h-4 text-emerald-600" />
+                                                        <span>{destination}</span>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -206,17 +209,17 @@ const HotelsHero = ({ onSearch }) => {
                                             : 'bg-white/20 border-white/30 text-white hover:bg-white/30'
                                     }`}
                                 >
-                                    <span className={checkInDate ? 'text-white' : 'text-gray-300'}>
+                                    <span className={checkInDate ? 'text-white text-sm' : 'text-gray-300 text-sm'}>
                                         {checkInDate ? formatDate(new Date(checkInDate)) : 'Select date'}
                                     </span>
-                                    <Calendar className="w-5 h-5 text-emerald-400" />
+                                    <Calendar className="w-4 h-4 text-emerald-400" />
                                 </button>
 
                                 {isCalendarOpen && (
-                                    <div className="absolute top-full mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 p-2 z-50 max-h-64 overflow-visible">
+                                    <div className="absolute top-full mt-1 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 p-2 z-50 overflow-hidden">
                                         <div className="grid grid-cols-7 gap-0.5">
                                             {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, idx) => (
-                                                <div key={idx} className="text-center text-[10px] font-semibold text-emerald-700 py-1">
+                                                <div key={idx} className="text-center text-[10px] font-semibold text-emerald-700 py-0.5">
                                                     {day}
                                                 </div>
                                             ))}
@@ -232,7 +235,7 @@ const HotelsHero = ({ onSearch }) => {
                                                         onClick={() => handleDateSelect(dateStr)}
                                                         className={`p-1 text-[10px] rounded transition-all duration-200 ${
                                                             isSelected
-                                                                ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold shadow-md'
+                                                                ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold'
                                                                 : isToday
                                                                 ? 'bg-emerald-100 text-emerald-700 font-semibold'
                                                                 : 'hover:bg-emerald-50 text-gray-700'
@@ -274,19 +277,21 @@ const HotelsHero = ({ onSearch }) => {
                                 </button>
 
                                 {isTravelersOpen && (
-                                    <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 overflow-hidden z-50 max-h-56 overflow-y-auto">
-                                        {travelersOptions.map((option, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => handleTravelersSelect(option.value)}
-                                                className="w-full px-4 py-3 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
-                                            >
-                                                <div className="flex items-center space-x-2">
-                                                    <Users className="w-4 h-4 text-emerald-600" />
-                                                    <span>{option.label}</span>
-                                                </div>
-                                            </button>
-                                        ))}
+                                    <div className="absolute top-full mt-1 w-full bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-200 z-50 max-h-44 overflow-hidden">
+                                        <div className="overflow-y-auto max-h-44">
+                                            {travelersOptions.map((option, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => handleTravelersSelect(option.value)}
+                                                    className="w-full px-4 py-2.5 text-left hover:bg-emerald-50 transition-colors duration-150 text-gray-700 font-medium"
+                                                >
+                                                    <div className="flex items-center space-x-2">
+                                                        <Users className="w-4 h-4 text-emerald-600" />
+                                                        <span>{option.label}</span>
+                                                    </div>
+                                                </button>
+                                            ))}
+                                        </div>
                                     </div>
                                 )}
                             </div>

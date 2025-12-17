@@ -109,7 +109,7 @@ const FeaturesSection = () => {
                     <p className="text-gray-600 mb-4">Ready to experience smarter travel?</p>
                     <button 
                      onClick={() => navigate('/travelplanner')}
-                    className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                    className=" cursor-pointer px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
                         Get Started Free
                     </button>
                 </div>

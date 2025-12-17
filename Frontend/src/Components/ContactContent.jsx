@@ -67,9 +67,9 @@ const ContactContent = () => {
         {
             icon: Phone,
             title: 'Call Us',
-            info: '+1 (555) 123-4567',
+            info: '+92 123-4567',
             subInfo: 'Mon-Fri 9am-6pm',
-            link: 'tel:+15551234567',
+            link: 'tel:+05551234567',
             gradient: 'from-emerald-500 to-teal-600'
         },
         {
@@ -84,8 +84,8 @@ const ContactContent = () => {
             icon: MapPin,
             title: 'Visit Us',
             info: '123 Travel Street',
-            subInfo: 'New York, NY 10001',
-            link: 'https://maps.google.com/?q=123+Travel+Street+New+York+NY',
+            subInfo: 'NUml University, Islamabad, PK',
+            link: 'https://maps.app.goo.gl/jzSsiJxqDPrigr5AA',
             gradient: 'from-emerald-600 to-green-600'
         },
         {
@@ -194,7 +194,7 @@ const ContactContent = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/50 transition-all"
-                                        placeholder="John Doe"
+                                        placeholder="Enter Name"
                                     />
                                 </div>
                                 <div>
@@ -207,7 +207,7 @@ const ContactContent = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/50 transition-all"
-                                        placeholder="john@example.com"
+                                        placeholder="Enter Email"
                                     />
                                 </div>
                             </div>

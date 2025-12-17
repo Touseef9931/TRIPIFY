@@ -40,7 +40,7 @@ const HeroSection = () => {
                     }`}
                 >
                     <Plane className="w-4 h-4 text-emerald-300" />
-                    <span className="text-emerald-100 text-sm">AI-Powered Travel Planning</span>
+                    <span className="text-emerald-100 text-sm">AI-Powered Travel Planner</span>
                 </div>
 
                 {/* Heading */}
@@ -73,7 +73,7 @@ const HeroSection = () => {
                 >
                     <button
                         onClick={() => navigate('/travelplanner')}
-                        className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-semibold text-lg hover:scale-105 transition flex items-center gap-2"
+                        className="cursor-pointer px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full font-semibold text-lg hover:scale-105 transition flex items-center gap-2"
                     >
                         Plan Your Trip
                         <ArrowRight className="w-5 h-5" />
@@ -81,7 +81,7 @@ const HeroSection = () => {
 
                     <button
                         onClick={handleExplore}
-                        className="px-8 py-4 bg-white/10 border border-white/30 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition flex items-center gap-2"
+                        className=" cursor-pointer px-8 py-4 bg-white/10 border border-white/30 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition flex items-center gap-2"
                     >
                         <MapPin className="w-5 h-5" />
                         Explore Destinations

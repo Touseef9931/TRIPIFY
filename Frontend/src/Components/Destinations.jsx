@@ -12,19 +12,19 @@ const DestinationsSection = () => {
         {
             id: 2,
             name: 'Skardu',
-            image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=2087',
+            image: 'https://images.unsplash.com/photo-1695724426547-c695ce34c358?q=80&w=699&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             layout: 'half'
         },
         {
             id: 3,
             name: 'Naran Kaghan',
-            image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070',
+            image: 'https://images.unsplash.com/photo-1722599504918-a7e94343184a?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             layout: 'half'
         },
         {
             id: 4,
             name: 'Swat Valley',
-            image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?q=80&w=2940',
+            image: 'https://images.unsplash.com/photo-1680020009117-911d3d3b4927?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             layout: 'full'
         },
         {
@@ -80,10 +80,7 @@ const DestinationsSection = () => {
                         <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                             {destination.name}
                         </h3>
-                        <div className="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                            <span className="text-white/90 text-sm">Explore Destination</span>
-                            <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -126,7 +123,7 @@ const DestinationsSection = () => {
                     {destinations.map(destination => renderDestination(destination))}
                 </div>
 
-              
+               
             </div>
         </div>
     );

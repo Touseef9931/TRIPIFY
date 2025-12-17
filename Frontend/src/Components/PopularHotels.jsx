@@ -8,285 +8,202 @@ const PopularHotels = ({ searchFilters }) => {
         'Hunza Valley': [
             {
                 id: 1,
-                name: "Hunza Serena Inn",
+                name: "Hunza Serena Hotel",
                 city: "Hunza Valley",
-                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070",
-                description: "Authentic mountain hospitality with panoramic views of snow-capped peaks and Rakaposhi.",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/574998207.jpg?k=58232aa148a3c9e969b01ccb7a01d07b00f5d96e43b5ba713723cbdfe54f73ac&o=",
+                description: "Hunza Serena Inn offers comfortable rooms with free WiFi, air-conditioning, and modern amenities",
                 rating: 4.9,
                 reviews: 478,
                 price: 32000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/hunza-serena-inn.en-gb.html"
             },
             {
                 id: 2,
-                name: "Eagle's Nest Hotel",
+                name: "Tourist Cottage Hunza",
                 city: "Hunza Valley",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/295975319.jpg?k=ac43a1b1d580b3ade113e6d12877b1584655ee43c4acf34a15ac45a813d192ee&o=",
                 description: "Perched on a hilltop offering breathtaking valley views with traditional Hunza architecture.",
                 rating: 4.8,
                 reviews: 392,
                 price: 28000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/tourist-cottage-hunza-hunza.en-gb.html"
             },
             {
                 id: 3,
-                name: "Hunza Embassy Hotel",
+                name: "Dastan-E-Hunza",
                 city: "Hunza Valley",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/726925401.jpg?k=43056bcbb953e99c268b11725d56ef437ff6b260ee09d7f1078f82348061a9d7&o=",
                 description: "Comfortable stay with modern amenities and stunning views of Ultar Sar peak.",
                 rating: 4.7,
                 reviews: 325,
                 price: 24000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/dastan-e-hunza.en-gb.html"
             },
             {
                 id: 4,
-                name: "Hill Top Hotel Hunza",
+                name: "Hunza Elites hotel",
                 city: "Hunza Valley",
-                image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/660365451.jpg?k=a42917909d3bd00d8f91be6eeb7f4aaf2cdd617d51027cffd4703867d1bd971a&o=",
                 description: "Family-run boutique hotel offering warm hospitality and traditional Hunza cuisine.",
                 rating: 4.6,
                 reviews: 268,
-                price: 20000,
+                price: 20776,
+                bookmeUrl: "https://www.booking.com/hotel/pk/hunza-elites-by-orane.en-gb.html"
             }
         ],
         'Skardu': [
             {
                 id: 5,
-                name: "Shangrila Resort",
+                name: "Arish Luxury Suites",
                 city: "Skardu",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/302756579.jpg?k=bc126b03d76e764d4f6c11599141880892bf5baa1cee822d05f2c5a520891c0a&o=",
                 description: "Paradise on earth with lakeside cottages and mesmerizing natural beauty of Lower Kachura Lake.",
                 rating: 4.9,
                 reviews: 542,
                 price: 35000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/arish-luxury-suites.en-gb.html"
             },
             {
                 id: 6,
-                name: "Skardu Serena Hotel",
+                name: "Signature Skardu Hotel",
                 city: "Skardu",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/701195247.jpg?k=cbfea0d48b9f207ad4b28ee8dd98d9af14b66bdd294c9278addde27c68911d2a&o=",
                 description: "Premium luxury resort with modern facilities and stunning mountain vistas.",
                 rating: 4.8,
                 reviews: 456,
                 price: 38000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/signature-skardu.en-gb.html"
             },
             {
                 id: 7,
-                name: "Baltistan Continental",
+                name: "Pacific Guest House Skardu",
                 city: "Skardu",
-                image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/668742167.jpg?k=3bfca5efe87b443089a289fe065a5f0700e3873d92e555660ec1305709e2602e&o=",
                 description: "Comfortable accommodations with easy access to Skardu's major attractions.",
                 rating: 4.6,
                 reviews: 312,
                 price: 26000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/pacific-guest-house.en-gb.html"
             },
             {
                 id: 8,
-                name: "K2 Base Hotel",
+                name: "PC Legacy Skardu",
                 city: "Skardu",
-                image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/607398286.jpg?k=6a101267d0c97fdcd32161615d227fb3191fbec9493e783ec8b17fa911276595&o=",
                 description: "Adventure hub for trekkers with cozy rooms and expedition support services.",
                 rating: 4.7,
                 reviews: 289,
                 price: 22000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/pc-legacy-skardu.en-gb.html"
             }
         ],
         'Naran Kaghan': [
             {
                 id: 9,
-                name: "Pine Park Resort",
-                city: "Naran Kaghan",
-                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070",
+                name: "Grand Heritage Hotel",
+                city: "Naran",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/311547557.jpg?k=04aa73daf88fbd215759974bcbb77ba7e75b47d80f9f7b0e31793155cb5dc495&o=",
                 description: "Riverside luxury resort surrounded by pine forests and mountain streams.",
                 rating: 4.8,
                 reviews: 418,
                 price: 30000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/grand-heritage.en-gb.html"
             },
             {
                 id: 10,
-                name: "Hotel Dreamland",
-                city: "Naran Kaghan",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
+                name: "Arcadian Cottages Naran",
+                city: "Naran",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/697744012.jpg?k=724c554d2d59673a584299c21b4883a01105761f2093af0c2feb468a880617f7&o=",
                 description: "Family-friendly hotel with modern amenities and stunning valley views.",
                 rating: 4.6,
                 reviews: 356,
                 price: 25000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/arcadian-cottages-naran.en-gb.html"
             },
             {
                 id: 11,
-                name: "Kaghan Continental",
-                city: "Naran Kaghan",
-                image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070",
+                name: "Centurion Hotel",
+                city: "Naran",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/253642440.jpg?k=022c283afef565d3678f5550c36e8e289c6bc614028197571cc311772a487301&o=",
                 description: "Comfortable stay with traditional hospitality near Saif-ul-Malook Lake.",
                 rating: 4.7,
                 reviews: 298,
                 price: 28000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/centurion.en-gb.html"
             },
             {
                 id: 12,
-                name: "River View Lodge",
-                city: "Naran Kaghan",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070",
+                name: "The Abbott Crown Hotel",
+                city: "Kaghan",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/561940229.jpg?k=368eaa26176c2cb25116c89531442632ba9bcf5f1a96d46337698e17175a7645&o=",
                 description: "Cozy riverside accommodation perfect for nature lovers and trekkers.",
                 rating: 4.5,
                 reviews: 234,
                 price: 22000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/the-abbott-crown.en-gb.html"
             }
         ],
         'Swat Valley': [
             {
                 id: 13,
-                name: "Swat Serena Hotel",
+                name: "Burj Al Swat Hotel",
                 city: "Swat Valley",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/480074065.jpg?k=7d3bd32a0b03953304ef91009423aa727b1f6bd4bc2aefd450cc119588a0a90f&o=",
                 description: "Switzerland of Pakistan - luxurious stay amidst lush green valleys and rivers.",
                 rating: 4.9,
                 reviews: 512,
                 price: 34000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/burj-al-swat-swat1.en-gb.html"
             },
             {
                 id: 14,
-                name: "Pearl Continental Malam Jabba",
+                name: "Shelton Rezidor Swat",
                 city: "Swat Valley",
-                image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/352462873.jpg?k=0f97d218b8f89c1890fefe789d3ed81f50e7414b24b3b05eba0250a7fd2a7af1&o=",
                 description: "Premium ski resort offering winter sports and summer retreats with modern facilities.",
                 rating: 4.8,
                 reviews: 445,
                 price: 32000,
-            },
-            {
-                id: 15,
-                name: "Rock City Resort",
-                city: "Swat Valley",
-                image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080",
-                description: "Riverside resort with archaeological sites nearby and serene mountain backdrop.",
-                rating: 4.7,
-                reviews: 378,
-                price: 27000,
-            },
-            {
-                id: 16,
-                name: "Mingora Heights Hotel",
-                city: "Swat Valley",
-                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070",
-                description: "Central location with easy access to Swat's attractions and markets.",
-                rating: 4.6,
-                reviews: 324,
-                price: 23000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/shelton-swat-swat.en-gb.html"
             }
         ],
         'Fairy Meadows': [
             {
                 id: 17,
-                name: "Fairy Meadows Cottages",
+                name: "Fairy meadows BroadView Hotel",
                 city: "Fairy Meadows",
-                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/667824530.jpg?k=382cc029ce4731e491965cf7cd36cb243993bbccdf744f42a1291d25e522c7a1&o=",
                 description: "Rustic wooden cottages with direct views of Nanga Parbat, the Killer Mountain.",
                 rating: 4.9,
                 reviews: 387,
                 price: 18000,
-            },
-            {
-                id: 18,
-                name: "Raikot Serai Camp",
-                city: "Fairy Meadows",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
-                description: "Glamping experience with spectacular mountain vistas and starry night skies.",
-                rating: 4.7,
-                reviews: 298,
-                price: 15000,
-            },
-            {
-                id: 19,
-                name: "Nanga Parbat View Resort",
-                city: "Fairy Meadows",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070",
-                description: "Eco-friendly resort offering trekking support and authentic mountain hospitality.",
-                rating: 4.8,
-                reviews: 342,
-                price: 16500,
+                bookmeUrl: "https://www.booking.com/hotel/pk/fairy-meadows-broadview.en-gb.html"
             }
         ],
         'Murree Hills': [
             {
-                id: 20,
-                name: "Pearl Continental Murree",
+                id: 19,
+                name: "The Roomy Lodge",
                 city: "Murree Hills",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/366130298.jpg?k=60f14ad365388555fa422da03df477872143a4117263e673ba8b9860460ea947&o=",
                 description: "Mountain retreat offering breathtaking valley views and cozy hill station ambiance.",
                 rating: 4.8,
                 reviews: 512,
                 price: 28000,
-            },
-            {
-                id: 21,
-                name: "Lockwood Hotel",
-                city: "Murree Hills",
-                image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070",
-                description: "Historic colonial-era hotel with modern amenities and panoramic mountain views.",
-                rating: 4.7,
-                reviews: 445,
-                price: 25000,
-            },
-            {
-                id: 22,
-                name: "Cecil Hotel Murree",
-                city: "Murree Hills",
-                image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080",
-                description: "Classic hill station hotel with old-world charm and Mall Road proximity.",
-                rating: 4.6,
-                reviews: 398,
-                price: 22000,
-            },
-            {
-                id: 23,
-                name: "Pine View Resort",
-                city: "Murree Hills",
-                image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070",
-                description: "Family-friendly resort surrounded by pine forests with recreational facilities.",
-                rating: 4.7,
-                reviews: 367,
-                price: 24000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/the-roomy-lodge.en-gb.html"
             }
         ],
         'Chitral Valley': [
             {
                 id: 24,
-                name: "Hindukush Heights Hotel",
+                name: "Hilal Gardens",
                 city: "Chitral Valley",
-                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070",
+                image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/739781296.jpg?k=5b9bfeef0ca123b450f0d6f20e14ca3199444b890833c613fea1bd172879ebef&o=",
                 description: "Gateway to the Hindu Kush mountains with traditional Chitrali hospitality.",
                 rating: 4.8,
                 reviews: 324,
                 price: 26000,
-            },
-            {
-                id: 25,
-                name: "Mountain Inn Chitral",
-                city: "Chitral Valley",
-                image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070",
-                description: "Comfortable accommodations with access to Kalash Valleys and Shandur Pass.",
-                rating: 4.7,
-                reviews: 278,
-                price: 23000,
-            },
-            {
-                id: 26,
-                name: "Tirich Mir Hotel",
-                city: "Chitral Valley",
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070",
-                description: "Named after Pakistan's highest peak, offering modern comforts in remote beauty.",
-                rating: 4.6,
-                reviews: 245,
-                price: 20000,
-            },
-            {
-                id: 27,
-                name: "Chitral Fort Lodge",
-                city: "Chitral Valley",
-                image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070",
-                description: "Heritage hotel near the historic Chitral Fort with cultural experiences.",
-                rating: 4.5,
-                reviews: 198,
-                price: 18000,
+                bookmeUrl: "https://www.booking.com/hotel/pk/hilal-gardens.en-gb.html"
             }
         ]
     };
@@ -323,6 +240,10 @@ const PopularHotels = ({ searchFilters }) => {
     useEffect(() => {
         setDisplayedHotels(filterHotels());
     }, [searchFilters]);
+
+    const handleBookNow = (bookmeUrl) => {
+        window.open(bookmeUrl, '_blank', 'noopener,noreferrer');
+    };
 
     return (
         <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
@@ -402,7 +323,10 @@ const PopularHotels = ({ searchFilters }) => {
                                     </div>
                                 </div>
 
-                                <button className="w-full mt-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl py-3 font-semibold hover:shadow-lg hover:shadow-emerald-500/50 hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
+                                <button 
+                                    onClick={() => handleBookNow(hotel.bookmeUrl)}
+                                    className="cursor-pointer w-full mt-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl py-3 font-semibold hover:shadow-lg hover:shadow-emerald-500/50 hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
+                                >
                                     <span>Book Now</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
@@ -410,7 +334,6 @@ const PopularHotels = ({ searchFilters }) => {
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );
